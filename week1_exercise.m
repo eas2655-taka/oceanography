@@ -42,7 +42,8 @@ I=find(dyr>2005&dyr<2015);
 % plot
 figure(2);
 plot(dyr(I),sst(I),'.-');
-
+xlabel('decimal year');
+ylabel('sea surface temperature');
 
 
 
