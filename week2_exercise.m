@@ -1,4 +1,4 @@
-%% plot profile from HOT data
+%% plot T-S diagram from HOT data
 
 % read data
 p=ncread('hotdata.nc','press');
