@@ -1,0 +1,16 @@
+function theta = t2theta(s,t,p)
+
+%% set up coefficient
+coeff = [3.6504e-4 8.3198e-5 -5.4065e-7 4.0274e-9;
+         1.7439e-5 -2.9778e-7 0 0;
+         8.9309e-7 -3.1628e-8 2.1987e-10 0;
+         4.1057e-9 0 0 0;
+         -1.6056e-10 5.0484e-12 0 0];
+     
+%% calculate potential temperature
+theta = t ...
+        -p.*(coeff(1,1)+coeff(1,2)*t+coeff(1,3)*t.^2+coeff(1,4)*t.^3) ...
+        -p.*(s-35).*(coeff(2,1)+coeff(2,2)*t) ...
+        -p.*p.*(coeff(3,1)+coeff(3,2)*t+coeff(3,3)*t.*t) ...
+        +coeff(4,1)*(s-35).*p.*p ...
+        -p.^3.*(coeff(5,1)+coeff(5,2)*t);
